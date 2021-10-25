@@ -5,17 +5,17 @@ const connection = require('knex')(config)
 module.exports = {
   getCows,
   insertCow,
-  updatedCow
+  updateCow
 }
 
 function getCows (db = connection) {
   return db('cows').select()
 }
 
-function insertCow (db = connection) {
-  return db('users').insert({})
+function insertCow (cow, db = connection) {
+  return db('cows').insert(cow)
 }
 
-function updatedCow (db = connection) {
-  
+function updateCow (id, updatedCow, db = connection) {
+  return db('cows').where('id', id).update(updatedCow)
 }
