@@ -17,8 +17,8 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
   db.insertCow(cow)
-    .then(users => {
-      res.json(users)
+    .then(newCow => {
+      res.json(newCow)
       return null
     })
     .catch(err => {
