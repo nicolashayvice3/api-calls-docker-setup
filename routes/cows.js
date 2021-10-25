@@ -16,9 +16,10 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', (req, res) => {
+  const cow = req.body
   db.insertCow(cow)
     .then(newCow => {
-      res.json(newCow)
+      res.status(201).end()
       return null
     })
     .catch(err => {
@@ -26,10 +27,12 @@ router.post('/', (req, res) => {
     })
 })
 
-router.put('/', (req, res) => {
-  db.updateCow(cowId, updatedCow)
+router.put('/:id', (req, res) => {
+  const id = req.params.id
+  const updatedCow = req.body
+  db.updateCow(id, updatedCow)
     .then(updatedCow => {
-      res.json(updatedCow)
+      res.status(201).end()
       return null
     })
     .catch(err => {
