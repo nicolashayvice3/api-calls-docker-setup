@@ -1,7 +1,6 @@
 exports.seed = function (knex, Promise) {
-  return knex('users').insert([
-    { id: 99901, name: 'test user 1', email: 'test1@users.net' },
-    { id: 99902, name: 'test user 2', email: 'test2@users.net' },
-    { id: 99903, name: 'test user 3', email: 'test3@users.net' }
+  return knex('cows').insert([
+    { uuid: "fe0a1ec1-e7d4-4b2d-d555-ae23926ee9d0", collarId: 221, cowNumber: 88269, collarStatus: "Healthy"  },
+    { uuid: "fe0a1ec1-esd4-4b2d-a555-ae23926ee9d0", collarId: 211, cowNumber: 88323, collarStatus: "Healthy" }
   ])
 }
