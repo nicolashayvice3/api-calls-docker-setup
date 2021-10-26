@@ -2,6 +2,8 @@ const environment = process.env.NODE_ENV || 'development'
 const config = require('./knexfile')[environment]
 const connection = require('knex')(config)
 
+import { v4 as uuidv4 } from 'uuid';
+
 module.exports = {
   getCows,
   insertCow,
@@ -13,8 +15,9 @@ function getCows (db = connection) {
 }
 
 function insertCow (cow, db = connection) {
-  // generate uuid for new cow
-  return db('cows').insert(cow)
+  const { collarId, cowNumber, collarStatus } = cow
+  const newCow = { collarId, cowNumber, collarStatus, id: uuidv4()}
+  return db('cows').insert(newCow)
 }
 
 function updateCow (id, updatedCow, db = connection) {
