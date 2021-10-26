@@ -7,7 +7,7 @@ const router = express.Router()
 router.get('/', (req, res) => {
   db.getCows()
     .then(allCows => {
-      res.render('index', {allCows: allCows})
+      res.render('index', { allCows: allCows })
       return null
     })
     .catch(err => {
