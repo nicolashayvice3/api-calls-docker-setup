@@ -8,6 +8,6 @@ const server = express()
 server.use(express.json())
 server.use(express.static(path.join(__dirname, 'public')))
 
-server.use('/', cowsRoutes)
+server.use('api/v1/', cowsRoutes)
 
 module.exports = server

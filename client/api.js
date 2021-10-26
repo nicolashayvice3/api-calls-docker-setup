@@ -14,6 +14,7 @@ export function sendCow (newCow) {
     return request.post(rootUrl)
     .send(newCow)
     .then(res => {
+        console.log('sent')
       return null
     })
     .catch(e => console.log(e))
