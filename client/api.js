@@ -3,7 +3,7 @@ import request from 'superagent'
 const rootUrl = '/api/v1'
 
 export function getCows () {
-    return request.get(rootUrl)
+  return request.get(rootUrl)
     .then(res => {
       return res.body
     })
@@ -11,17 +11,16 @@ export function getCows () {
 }
 
 export function sendCow (newCow) {
-    return request.post(rootUrl)
+  return request.post(rootUrl)
     .send(newCow)
     .then(res => {
-        console.log('sent')
       return null
     })
     .catch(e => console.log(e))
 }
 
 export function updateCow (id, updatedCow) {
-    return request
+  return request
     .patch(rootUrl + `/${id}`)
     .send(updatedCow)
     .then(res => {
