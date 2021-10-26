@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { sendCow } from '../api'
 
+import AllCows from './AllCows'
+
 function App () {
   const initialState = { collarId: '', cowNumber: '', collarStatus: '' }
   const [data, setData] = useState(initialState)
@@ -21,7 +23,7 @@ function App () {
   return (
     <>
       <div>
-
+        <AllCows />
       </div>
       <div>
         <form>

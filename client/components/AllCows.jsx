@@ -2,19 +2,19 @@ import React, { useState, useEffect } from 'react'
 import { getCows } from '../api'
 
 function AllCows () {
-  const initialState = [{ collarId: '', cowNumber: '', collarStatus: '', id: '' }]
-  const [data, setData] = useState(initialState)
+  const [data, setData] = useState([])
 
-  useEffect(() => {
+  function refreshCows () {
     getCows()
-      .then(data => {
+      .then(cows => {
         setData(data)
         return null
       })
-      .catch(err => {
-        console.log(err.message)
-        return null
-      })
+      .catch(e => console.log(e))
+  }
+
+  useEffect(() => {
+    refreshCows()
   }, [])
 
   return (
@@ -22,13 +22,11 @@ function AllCows () {
       <div>
         <p>All the cows in the herd</p>
       </div>
-      <div>
-        {data.map((data, i) => {
-          return (
-            <AllCowsIndividual key={i} collarId={data.collarId} cowNumber={data.cowNumber} collarStatus={data.collarStatus} id={data.id}/>
-          )
-        })}
-      </div>
+      <ul>
+        {data.map(cow => <li key={cow.id}>{cow.collarId}{cow.cowNumber}{cow.collarStatus}</li>)}
+      </ul>
     </>
   )
 }
+
+export default AllCows
