@@ -15,6 +15,7 @@ test('GET /', () => {
     .get('/')
     .expect(200)
     .then((res) => {
+      // has to be changed to fit new database promise
       const $ = cheerio.load(res.text)
       const firstLiText = $('li').first().text()
       expect(firstLiText).toBe('test user 2 (test2@user.nz)')
