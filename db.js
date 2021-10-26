@@ -13,6 +13,7 @@ function getCows (db = connection) {
 }
 
 function insertCow (cow, db = connection) {
+  // generate uuid for new cow
   return db('cows').insert(cow)
 }
 

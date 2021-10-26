@@ -2,12 +2,9 @@ const request = require('supertest')
 const cheerio = require('cheerio')
 
 jest.mock('../db', () => ({
-  getUser: (id) => Promise.resolve(
-    {id: id, name: 'test user', email: 'test@user.nz'}
-  ),
-  getUsers: () => Promise.resolve([
-    {id: 2, name: 'test user 2', email: 'test2@user.nz'},
-    {id: 4, name: 'test user 4', email: 'test4@user.nz'}
+  getCows: () => Promise.resolve([
+    { id: "fe0a1ec1-e7d4-4b2d-d555-ae23926ee9d0", collarId: 221, cowNumber: 88269, collarStatus: "Healthy"  },
+    { id: "fe0a1ec1-esd4-4b2d-a555-ae23926ee9d0", collarId: 211, cowNumber: 88323, collarStatus: "Healthy" }
   ])
 }))
 
