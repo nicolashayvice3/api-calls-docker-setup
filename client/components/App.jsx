@@ -1,8 +1,11 @@
-
 import React from 'react'
 
 function App () {
-    <p> hi there </p>
+    return (
+        <>
+            <p> hi there </p> 
+        </> 
+    )
 }
 
-export default connect()(App)
+export default App
