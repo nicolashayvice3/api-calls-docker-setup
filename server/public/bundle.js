@@ -78,7 +78,8 @@ function AllCows() {
 
   function refreshCows() {
     (0,_api__WEBPACK_IMPORTED_MODULE_1__.getCows)().then(function (cows) {
-      setData(data);
+      console.log(cows);
+      setData(cows);
       return null;
     })["catch"](function (e) {
       return console.log(e);
@@ -88,10 +89,10 @@ function AllCows() {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     refreshCows();
   }, []);
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "All the cows in the herd")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", null, data.map(function (cow) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "All the cows in the herd")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", null, data.map(function (cow, i) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
-      key: cow.id
-    }, cow.collarId, cow.cowNumber, cow.collarStatus);
+      key: i
+    }, cow.id, ", ", cow.collarId, ", ", cow.cowNumber, ", ", cow.collarStatus);
   })));
 }
 

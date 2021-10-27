@@ -9,7 +9,6 @@ module.exports = {
 }
 
 function getCows (db = connection) {
-  console.log('hello')
   return db('cows').select()
 }
 

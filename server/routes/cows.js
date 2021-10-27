@@ -20,6 +20,7 @@ router.post('/cows', (req, res) => {
   const cow = req.body
   db.insertCow(cow)
     .then(newCow => {
+      console.log(newCow)
       res.status(201).end()
       return null
     })
