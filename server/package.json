@@ -1,0 +1,36 @@
+{
+  "name": "nicoproject",
+  "version": "1.0.0",
+  "description": "api calls for cows",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "dev": "run-p dev:server",
+    "dev:server": "nodemon --watch server",
+    "knex": "knex --knexfile ./knexfile.js",
+    "test": "jest",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "eslintConfig": {
+    "extends": "eda",
+    "ignorePatterns": [
+      "bundle.js"
+    ]
+  },
+  "dependencies": {
+    "eslint-config-eda": "^0.1.4",
+    "express": "^4.17.1",
+    "knex": "^0.95.11",
+    "nodemon": "^2.0.2",
+    "sqlite3": "^5.0.2",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "cheerio": "^1.0.0-rc.10",
+    "eslint": "^7.12.1",
+    "jest": "^25.1",
+    "npm-run-all": "^4.1.5",
+    "supertest": "^4.0.2"
+  }
+}
