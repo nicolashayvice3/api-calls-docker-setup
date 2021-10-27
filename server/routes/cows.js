@@ -27,10 +27,9 @@ router.post('/', (req, res) => {
     })
 })
 
-router.put('/cows/:id', (req, res) => {
-  const id = req.params.id
+router.patch('/', (req, res) => {
   const updatedCow = req.body
-  db.updateCow(id, updatedCow)
+  db.updateCow(updatedCow)
     .then(updatedCow => {
       res.status(201).end()
       return null

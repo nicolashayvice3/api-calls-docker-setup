@@ -21,9 +21,9 @@ export function sendCow (newCow) {
     .catch(e => console.log(e))
 }
 
-export function updateCow (id, updatedCow) {
+export function updateCow (updatedCow) {
   return request
-    .patch(rootUrl + `/${id}`)
+    .patch(rootUrl)
     .send(updatedCow)
     .then(res => {
       return res.body

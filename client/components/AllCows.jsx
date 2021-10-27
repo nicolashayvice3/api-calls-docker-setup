@@ -22,6 +22,7 @@ function AllCows () {
       <div>
         <p>All the cows in the herd</p>
       </div>
+      <br></br>
       <ul>
         {data.map((cow, i) => <li key={i}> id: {cow.id}, collarId: {cow.collarId}, cowNumber: {cow.cowNumber}, collarStatus: {cow.collarStatus}</li>)}
       </ul>

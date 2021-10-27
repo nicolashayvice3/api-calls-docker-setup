@@ -18,6 +18,6 @@ function insertCow (cow, db = connection) {
   return db('cows').insert(newCow)
 }
 
-function updateCow (id, updatedCow, db = connection) {
-  return db('cows').where('id', id).update(updatedCow)
+function updateCow (updatedCow, db = connection) {
+  return db('cows').where('id', updatedCow.id).update(updatedCow)
 }

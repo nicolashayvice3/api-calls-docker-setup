@@ -1,11 +1,8 @@
 import React, { useState } from 'react'
-import { sendCow } from '../api'
+import { updateCow } from '../api'
 
-import AllCows from './AllCows'
-import UpdateCow from './UpdateCow'
-
-function App () {
-  const initialState = { collarId: '', cowNumber: '', collarStatus: '' }
+function UpdateCow () {
+  const initialState = { id: '', collarId: '', cowNumber: '', collarStatus: '' }
   const [data, setData] = useState(initialState)
 
   function handleChange (evt) {
@@ -18,18 +15,17 @@ function App () {
 
   function handleSubmit (e) {
     e.preventDefault()
-    sendCow(data)
+    updateCow(data)
     window.location.reload(true)
   }
 
   return (
     <>
       <div>
-        <AllCows />
-      </div>
-      <br></br>
-      <div>
-        <form method='post'>
+        <form method='patch'>
+          <label htmlFor='id'>id</label>
+          <input type='uuid' id='id' name='id' placeholder='Enter id' onChange={handleChange}/>
+
           <label htmlFor='collarId'>collar id</label>
           <input type='int' id='collarId' name='collarId' placeholder='Enter collar id' onChange={handleChange}/>
 
@@ -41,12 +37,8 @@ function App () {
         </form>
         <button onClick={handleSubmit} type="submit" name="next"> Submit Update </button>
       </div>
-      <br></br>
-      <div>
-        update cow: <UpdateCow />
-      </div>
     </>
   )
 }
 
-export default App
+export default UpdateCow
