@@ -14,7 +14,7 @@ function getCows (db = connection) {
 
 function insertCow (cow, db = connection) {
   const { collarId, cowNumber, collarStatus } = cow
-  const newCow = { collarId, cowNumber, collarStatus, id: uuidv4()}
+  const newCow = { collarId, cowNumber, collarStatus, id: uuidv4() }
   return db('cows').insert(newCow)
 }
 

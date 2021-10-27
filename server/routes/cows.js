@@ -7,7 +7,6 @@ const router = express.Router()
 router.get('/', (req, res) => {
   db.getCows()
     .then(allCows => {
-      console.log(allCows)
       res.json(allCows)
       return null
     })
@@ -16,11 +15,10 @@ router.get('/', (req, res) => {
     })
 })
 
-router.post('/cows', (req, res) => {
+router.post('/', (req, res) => {
   const cow = req.body
   db.insertCow(cow)
     .then(newCow => {
-      console.log(newCow)
       res.status(201).end()
       return null
     })
