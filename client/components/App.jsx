@@ -18,6 +18,7 @@ function App () {
   function handleSubmit (e) {
     e.preventDefault()
     sendCow(data)
+    window.location.reload(true)
   }
 
   return (
