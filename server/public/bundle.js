@@ -78,7 +78,6 @@ function AllCows() {
 
   function refreshCows() {
     (0,_api__WEBPACK_IMPORTED_MODULE_1__.getCows)().then(function (cows) {
-      console.log(cows);
       setData(cows);
       return null;
     })["catch"](function (e) {
@@ -92,7 +91,7 @@ function AllCows() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "All the cows in the herd")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", null, data.map(function (cow, i) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
       key: i
-    }, cow.id, ", ", cow.collarId, ", ", cow.cowNumber, ", ", cow.collarStatus);
+    }, " id: ", cow.id, ", collarId: ", cow.collarId, ", cowNumber: ", cow.cowNumber, ", collarStatus: ", cow.collarStatus);
   })));
 }
 

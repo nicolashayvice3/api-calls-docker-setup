@@ -7,7 +7,6 @@ function AllCows () {
   function refreshCows () {
     getCows()
       .then(cows => {
-        console.log(cows)
         setData(cows)
         return null
       })
@@ -24,7 +23,7 @@ function AllCows () {
         <p>All the cows in the herd</p>
       </div>
       <ul>
-        {data.map((cow, i) => <li key={i}>{cow.id}, {cow.collarId}, {cow.cowNumber}, {cow.collarStatus}</li>)}
+        {data.map((cow, i) => <li key={i}> id: {cow.id}, collarId: {cow.collarId}, cowNumber: {cow.cowNumber}, collarStatus: {cow.collarStatus}</li>)}
       </ul>
     </>
   )
