@@ -24,18 +24,48 @@ Client side-
 Used React as my client side user interface.
 Used Superagent for my api calls to the sever side.
 
-Problems that I encountered-
-I had to put my migrations and seeds out of my server folder becuase knexfile.js could not access them. I tried changing the placement of the knex file as well but it did alter the error message.
-
-Solution to problem-
-I simply put the migrations, seeds and knexfile.js outside of the server folder and it worked!
-
 
 - Guide to run service locally - 
 
-npm install
-npx knex migrate:latest
-npx knex seed:run
-npm run dev
+1- Running client
+a- `cd` in to client folder
+b- `npm i`
+c- `npm run dev`
 
-(if you want to reset the database delete dev.sqlite3 and re-run the npx commands above)
+2- Running server
+(remember to do this in separate terminal windows)
+a- `cd` in to server folder
+b- `npm i`
+c- `npm run knex migrate:latest`
+d- `npm run knex seed:run`
+e- `npm run dev`
+
+3- Navigate to localhost in browser
+a- `http://localhost:3000`
+
+Here you can access all of the functionalities. No css.
+
+(if you want to reset the database delete dev.sqlite3 and re-run the npm knex commands above)
+
+
+- Guide to run service with docker - (Not fully functional)
+
+a- run `docker-compose build` in terminal within root of project
+b- run `docker-compose up` in terminal within root of project
+c- navigate to `http://localhost:3000` and open inspect tool to see errors
+
+Explanation of problem-
+I tried fixing this problem many ways yet I could not get past the problem within the node modules. I implemeted .dockerignore and it seemed to fix one of the problems but once I inputed the commands `npm run knex migrate:latest` & `npm run knex seed:run` in the Dockerfilez(server) the prior problem arose again. Example of problem below:
+
+`server_1  | Cannot find module '/app/node_modules/sqlite3/lib/binding/napi-v3-linux-x64/node_sqlite3.node'`
+
+I looked within the node modules and found that sqlite3 was changing the required path `linux-x64` with
+`darwin-x64`.
+
+https://stackoverflow.com/questions/51769034/how-to-use-sqlite3-with-docker-compose
+
+The link above was the closet solution I found to the problem.
+
+
+
+

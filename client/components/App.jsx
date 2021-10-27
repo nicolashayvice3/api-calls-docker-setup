@@ -39,7 +39,7 @@ function App () {
           <label htmlFor='collarStatus'>collar status</label>
           <input type='string' id='collarStatus' name='collarStatus' placeholder='Enter collar status' onChange={handleChange}/>
         </form>
-        <button onClick={handleSubmit} type="submit" name="next"> Submit Update </button>
+        <button onClick={handleSubmit} type="submit" name="next"> Submit New Friend </button>
       </div>
       <br></br>
       <div>

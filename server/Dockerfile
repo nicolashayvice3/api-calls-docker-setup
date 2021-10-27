@@ -1,8 +1,9 @@
 FROM node:alpine
+RUN mkdir /app
 WORKDIR /app
-COPY package.json ./
-COPY package-lock.json ./
+ADD package.json /package.json
 COPY ./ ./
 RUN npm i
-RUN npm install sqlite3 --save
+RUN npm run knex migrate:latest
+RUN npm run knex seed:run
 CMD ["npm", "run", "dev"]

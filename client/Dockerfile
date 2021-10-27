@@ -1,8 +1,6 @@
 FROM node:alpine
 WORKDIR /app
 COPY package.json ./
-COPY package-lock.json ./
 COPY ./ ./
 RUN npm i
-RUN npm install sqlite3 --save
 CMD ["npm", "run", "dev"]
