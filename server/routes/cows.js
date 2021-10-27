@@ -7,7 +7,8 @@ const router = express.Router()
 router.get('/', (req, res) => {
   db.getCows()
     .then(allCows => {
-      res.render('index', { allCows: allCows })
+      console.log(allCows)
+      res.json(allCows)
       return null
     })
     .catch(err => {
@@ -15,7 +16,7 @@ router.get('/', (req, res) => {
     })
 })
 
-router.post('/', (req, res) => {
+router.post('/cows', (req, res) => {
   const cow = req.body
   db.insertCow(cow)
     .then(newCow => {
@@ -27,7 +28,7 @@ router.post('/', (req, res) => {
     })
 })
 
-router.put('/:id', (req, res) => {
+router.put('/cows/:id', (req, res) => {
   const id = req.params.id
   const updatedCow = req.body
   db.updateCow(id, updatedCow)

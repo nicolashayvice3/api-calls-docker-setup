@@ -1,9 +1,10 @@
 import request from 'superagent'
 
-const rootUrl = '/api/v1'
+const rootUrl = '/api/v1/cows'
 
 export function getCows () {
-  return request.get(rootUrl)
+  return request
+    .get(rootUrl)
     .then(res => {
       return res.body
     })
@@ -11,7 +12,8 @@ export function getCows () {
 }
 
 export function sendCow (newCow) {
-  return request.post(rootUrl)
+  return request
+    .post(rootUrl)
     .send(newCow)
     .then(res => {
       return null

@@ -1,7 +1,6 @@
-const environment = process.env.NODE_ENV || 'development'
-const config = require('./knexfile')[environment]
-const connection = require('knex')(config)
 const { v4: uuidv4 } = require('uuid')
+
+const connection = require('./connection')
 
 module.exports = {
   getCows,
@@ -10,6 +9,7 @@ module.exports = {
 }
 
 function getCows (db = connection) {
+  console.log('hello')
   return db('cows').select()
 }
 
