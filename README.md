@@ -18,7 +18,7 @@ Server side -
 For the back end I used knex for the databases.
 Sqlite3 was used for database managment. It follows PostgreSQL syntax.
 For the routes I used express.
-To implement the uuid I used a package called ."uuid" that I added to database function insertCow,line 17.
+To implement the uuid I used a package called ."uuid" that I added to database function insertCoin,line 17.
 
 Client side-
 Used React as my client side user interface.
